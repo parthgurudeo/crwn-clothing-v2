@@ -1,38 +1,25 @@
-import './categories.styles.scss'
-import Directory from './components/directory/directory.component';
+import {Routes,Route, Outlet} from 'react-router-dom'
+import Home from './../src/routes/homePage/home-page';
+import Navigation from './routes/navigation/navigation';
+import SignIn from './routes/signin/signin.component';
+import Shop from './routes/shop/shop';
 
 const App = () => {
-  const categories=[
-    {
-      "id": 1,
-      "title": "hats",
-      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
-    },
-    {
-      "id": 2,
-      "title": "jackets",
-      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      "id": 3,
-      "title": "sneakers",
-      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      "id": 4,
-      "title": "womens",
-      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      "id": 5,
-      "title": "mens",
-      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
-    }
-  ]
-  
+ 
   return (
-    
-  <Directory categories={categories}/>
+   <Routes>
+    <Route path='/'element={<Navigation/>}>
+    <Route index element={<Home/>}></Route>
+    <Route path='/signin' element={<SignIn/>}></Route>
+    <Route path='/shop' element={<Shop/>}></Route>
+
+
+    </Route>
+ 
+
+ 
+   </Routes> 
+ 
      
    
   );
